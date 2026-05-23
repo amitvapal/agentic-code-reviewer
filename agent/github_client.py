@@ -83,15 +83,19 @@ class GitHubClient:
         if token is None:
             settings = settings or Settings()
             token = settings.github_token
-        self.token = token
-        self.gh = Github(auth=Auth.Token(token))
+        self.token = token or ""
+        # An empty token => unauthenticated client (fine for reading public repos).
+        self.gh = Github(auth=Auth.Token(self.token)) if self.token else Github()
 
     def _headers(self, accept: str = "application/vnd.github+json") -> dict[str, str]:
-        return {
-            "Authorization": f"Bearer {self.token}",
-            "Accept": accept,
-            "X-GitHub-Api-Version": "2022-11-28",
-        }
+        headers = {"Accept": accept, "X-GitHub-Api-Version": "2022-11-28"}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+        return headers
+
+    def repo_is_public(self, repo_full_name: str) -> bool:
+        """Return True if the repository exists and is public."""
+        return not self.gh.get_repo(repo_full_name).private
 
     def get_pr_diff(self, repo_full_name: str, pr_number: int) -> str:
         """Return the unified diff for a PR."""
