@@ -1,0 +1,63 @@
+{
+  "sample": true,
+  "note": "Illustrative placeholder so the dashboard renders before a real run. Run `python -m eval.run` to overwrite eval/results.json with measured numbers.",
+  "summary": {
+    "n_cases": 9,
+    "overall": {
+      "precision": 0.78,
+      "recall": 0.72,
+      "f1": 0.75,
+      "tp": 11,
+      "fp": 3,
+      "labels": 9,
+      "labels_found": 7
+    },
+    "by_kind": {
+      "bug": {
+        "precision": 0.86,
+        "recall": 0.8,
+        "f1": 0.83,
+        "tp": 6,
+        "fp": 1,
+        "labels": 5,
+        "labels_found": 4
+      },
+      "style": {
+        "precision": 0.67,
+        "recall": 0.5,
+        "f1": 0.57,
+        "tp": 2,
+        "fp": 1,
+        "labels": 2,
+        "labels_found": 1
+      },
+      "refactor": {
+        "precision": 0.75,
+        "recall": 0.5,
+        "f1": 0.6,
+        "tp": 3,
+        "fp": 1,
+        "labels": 2,
+        "labels_found": 1
+      }
+    },
+    "test_breaking": {
+      "total": 4,
+      "confirmed_green_to_red": 4,
+      "flagged": 4,
+      "flag_rate": 1.0
+    },
+    "fix_correctness": {
+      "attempts": 4,
+      "correct": 3,
+      "rate": 0.75
+    }
+  },
+  "baseline": {
+    "label": "single-shot (no CoT)",
+    "overall": {
+      "precision": 0.55,
+      "recall": 0.61
+    }
+  }
+}

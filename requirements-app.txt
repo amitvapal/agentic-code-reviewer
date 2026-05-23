@@ -1,0 +1,14 @@
+# Lean dependency set for the web demo container.
+# The demo runs review_diff(retrieve=False), so it does NOT need chromadb /
+# sentence-transformers / torch (those stay in requirements.txt for the agent's
+# RAG indexing and the eval harness). This keeps the image small and free-tier
+# friendly.
+anthropic>=0.40.0
+langchain-anthropic
+PyGithub
+unidiff
+requests
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-dotenv

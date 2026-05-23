@@ -69,12 +69,21 @@ def _summarize(findings: list[Finding], hunks: int, files: set[str]) -> str:
     )
 
 
-def review_diff(diff_text: str, repo_path: str, settings: Settings | None = None) -> Review:
+def review_diff(
+    diff_text: str,
+    repo_path: str,
+    settings: Settings | None = None,
+    retrieve: bool = True,
+) -> Review:
     """Review a unified diff and return aggregated, de-duplicated findings.
 
     For each changed hunk: retrieve codebase context, run the bug / style /
     refactor chains concurrently, and collect their findings. Findings are then
     de-duplicated by (file, line, kind) and summarized.
+
+    Set ``retrieve=False`` to skip RAG (e.g. the read-only web demo, where the
+    repo isn't checked out); the chains then run on the diff alone and the heavy
+    embedding/vector-store dependencies are never imported.
     """
     settings = settings or Settings()
     patch = PatchSet(diff_text)
@@ -90,8 +99,10 @@ def review_diff(diff_text: str, repo_path: str, settings: Settings | None = None
         for hunk in patched_file:
             hunk_count += 1
             hunk_text = str(hunk)
-            context = retrieve_for_hunk(
-                hunk_text, file_path, top_k=settings.top_k, settings=settings
+            context = (
+                retrieve_for_hunk(hunk_text, file_path, top_k=settings.top_k, settings=settings)
+                if retrieve
+                else []
             )
             for result in _review_hunk(hunk_text, context, llm):
                 for finding in result.findings:

@@ -1,13 +1,19 @@
-# Placeholder image. PR 6 turns this into a multi-stage build that compiles the
-# frontend and serves it (plus the agent API) from FastAPI. For now it just
-# installs the Python deps and runs the test suite as a smoke check.
+# Single-stage image: the dashboard is plain static HTML, so no Node build step
+# is needed. The web demo uses the lean app dependency set (no torch/chromadb)
+# and runs reviews without RAG context — see requirements-app.txt.
 FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements-app.txt ./
+RUN pip install --no-cache-dir -r requirements-app.txt
 
-COPY . .
+COPY agent/ ./agent/
+COPY app/ ./app/
+COPY eval/results.sample.json ./eval/results.sample.json
+COPY frontend/ ./static/
 
-CMD ["pytest", "-q"]
+ENV STATIC_DIR=/app/static
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

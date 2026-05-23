@@ -1,0 +1,15 @@
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+chroma_db
+dist
+node_modules
+.env
+tests
+eval/benchmark
+eval/results.json
+eval/REPORT.md
+.github
