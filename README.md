@@ -1,7 +1,6 @@
 # Agentic Code Review
 
-[![Live Demo](https://img.shields.io/badge/demo-live-1f7a6d)](https://YOUR-RENDER-URL.onrender.com)
-[![PR Review Action](https://img.shields.io/badge/github%20action-pr%20review-2563a8)](.github/workflows/pr-review.yml)
+[Live Demo](https://agentic-code-review.onrender.com/#/dashboard)
 
 An autonomous pull-request reviewer powered by Claude. It decomposes review into three
 Chain-of-Thought chains — **bug**, **style**, and **refactor** — grounds them in the
