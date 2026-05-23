@@ -1,0 +1,11 @@
+diff --git a/geometry.py b/geometry.py
+index b7f244e..38c3681 100644
+--- a/geometry.py
++++ b/geometry.py
+@@ -1,3 +1,3 @@
+-def rectangle_area(width, height):
+-    """Return the area of a rectangle."""
+-    return width * height
++def rectangle_area(w, h):
++    x = 0  # unused
++    return w * h

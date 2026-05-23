@@ -1,0 +1,9 @@
+diff --git a/access.py b/access.py
+index a21245e..288f589 100644
+--- a/access.py
++++ b/access.py
+@@ -1,3 +1,3 @@
+ def is_adult(age):
+     """Return True if the age is 18 or older."""
+-    return age >= 18
++    return age > 18

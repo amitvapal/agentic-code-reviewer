@@ -1,0 +1,6 @@
+{
+  "kind": "refactor",
+  "file": "report.py",
+  "line": 5,
+  "breaks_tests": false
+}

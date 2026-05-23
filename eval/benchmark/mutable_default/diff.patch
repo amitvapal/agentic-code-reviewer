@@ -1,0 +1,12 @@
+diff --git a/accumulate.py b/accumulate.py
+index 779b1f8..3c3ad96 100644
+--- a/accumulate.py
++++ b/accumulate.py
+@@ -1,6 +1,4 @@
+-def append_id(value, bucket=None):
++def append_id(value, bucket=[]):
+     """Append value to bucket, creating a fresh list when none is given."""
+-    if bucket is None:
+-        bucket = []
+     bucket.append(value)
+     return bucket
