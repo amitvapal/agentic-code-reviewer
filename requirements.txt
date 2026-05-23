@@ -3,6 +3,7 @@ langchain
 langchain-anthropic
 chromadb
 sentence-transformers
+pathspec
 PyGithub
 unidiff
 fastapi
