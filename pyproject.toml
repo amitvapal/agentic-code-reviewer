@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+# Keep collection to the project's own tests; the eval benchmark contains
+# intentionally-broken fixture code with its own test files.
+testpaths = ["tests"]
+
+[tool.ruff]
+# The benchmark fixtures deliberately contain style/refactor issues.
+extend-exclude = ["eval/benchmark"]

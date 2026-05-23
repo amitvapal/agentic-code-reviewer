@@ -1,0 +1,6 @@
+{
+  "kind": "bug",
+  "file": "pricing.py",
+  "line": 6,
+  "breaks_tests": true
+}

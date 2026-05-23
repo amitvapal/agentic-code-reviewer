@@ -1,0 +1,11 @@
+diff --git a/config_reader.py b/config_reader.py
+index a5ce75f..fe1c3ee 100644
+--- a/config_reader.py
++++ b/config_reader.py
+@@ -1,4 +1,4 @@
+ def read_text(path):
+     """Read and return the contents of a file."""
+-    with open(path, encoding="utf-8") as handle:
+-        return handle.read()
++    handle = open(path, encoding="utf-8")
++    return handle.read()

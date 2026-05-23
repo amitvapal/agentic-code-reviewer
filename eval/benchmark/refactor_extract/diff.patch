@@ -1,0 +1,15 @@
+diff --git a/report.py b/report.py
+index 04ded0c..311ac08 100644
+--- a/report.py
++++ b/report.py
+@@ -1,7 +1,6 @@
+ def format_report(rows):
+     """Return a comma-joined header plus one line per row."""
+-    header = "id,name,score"
+-    lines = [header]
++    out = "id,name,score"
+     for row in rows:
+-        lines.append(f"{row['id']},{row['name']},{row['score']}")
+-    return "\n".join(lines)
++        out = out + "\n" + str(row['id']) + "," + str(row['name']) + "," + str(row['score'])
++    return out

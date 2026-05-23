@@ -1,0 +1,6 @@
+{
+  "kind": "bug",
+  "file": "config_reader.py",
+  "line": 3,
+  "breaks_tests": false
+}

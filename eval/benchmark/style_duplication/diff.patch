@@ -1,0 +1,12 @@
+diff --git a/validate.py b/validate.py
+index 5f24b75..8fde032 100644
+--- a/validate.py
++++ b/validate.py
+@@ -1,5 +1,7 @@
+ def validate_user(user):
+     """Validate that a user dict has a name and an email."""
++    if not user.get("name"):
++        raise ValueError("name is required")
+     if not user.get("name"):
+         raise ValueError("name is required")
+     if not user.get("email"):

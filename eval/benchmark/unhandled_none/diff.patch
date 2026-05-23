@@ -1,0 +1,12 @@
+diff --git a/pricing.py b/pricing.py
+index 002880c..955ee6f 100644
+--- a/pricing.py
++++ b/pricing.py
+@@ -3,6 +3,5 @@ def total_price(items):
+     total = 0
+     for item in items:
+         price = item.get("price")
+-        if price is not None:
+-            total += price
++        total += price
+     return total

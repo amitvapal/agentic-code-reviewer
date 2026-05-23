@@ -1,0 +1,6 @@
+{
+  "kind": "bug",
+  "file": "accumulate.py",
+  "line": 1,
+  "breaks_tests": true
+}

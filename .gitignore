@@ -7,3 +7,7 @@ node_modules/
 *.pyc
 .pytest_cache/
 .ruff_cache/
+
+# Generated eval artifacts
+eval/results.json
+eval/REPORT.md

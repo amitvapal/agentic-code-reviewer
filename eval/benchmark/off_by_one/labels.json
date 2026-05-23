@@ -1,0 +1,6 @@
+{
+  "kind": "bug",
+  "file": "slicing.py",
+  "line": 3,
+  "breaks_tests": true
+}
